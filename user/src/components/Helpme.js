@@ -15,6 +15,8 @@ export default function Helpme() {
   function success(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
+    setLat(latitude);
+    setLon(longitude)
     console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
   }
   
@@ -31,8 +33,9 @@ export default function Helpme() {
 
   return (
     <div>
-      {latitude}
-      {longitude}
+      {lat}
+      <br></br>
+      {lon}
     </div>
   )
 }

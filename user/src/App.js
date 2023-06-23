@@ -2,13 +2,21 @@ import './App.css';
 import { Toaster } from 'react-hot-toast';
 import Signup from './components/Signup';
 import Login from './components/Login';
-
+import Profile from './components/Profile'
+import { Routes, Route } from 'react-router-dom';
+import NoMatch from './components/NoMatch';
 function App() {
   
   return (
     <div className="App">
        <Toaster position="bottom-center" reverseOrder={false} />
-      <Signup></Signup>
+       <Routes>
+          <Route path="/" element={<Profile />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<NoMatch />} />
+       </Routes>
      
     </div>
   );

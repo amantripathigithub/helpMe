@@ -2,10 +2,11 @@ import React from 'react'
 import Toaster, { toast } from 'react-hot-toast';
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
     
-  
+	const navigate = useNavigate();
 
 	// States for registration
 	const [name, setName] = useState('');
@@ -38,18 +39,19 @@ export default function Signup() {
         axios.post(url,data).then((res)=>{
             const exist = res.data.exist;
             if(exist==="1"){
-                toast.success(email + " is already  registered !!");
+                toast.error(email + " is already  registered !!");
             }else{
                 const saved= res.data.saved;
                 if(saved==="1"){
                     toast.success(name + " is successfully registered !!");
+					navigate('/Login');
                     
                 }else{
-                    toast.success("ERROR  try after sometime !!");
+                    toast.error("ERROR  try after sometime !!");
                 }
             }
         }).catch((err)=> {
-            toast.success("server is down try after sometime !!");
+            toast.error("server is down try after sometime !!");
         })
     }
 

@@ -57,6 +57,39 @@ app.post("/register", async (req,res)=>{
 })
 
 
+
+app.post("/login", async (req,res)=>{
+   
+    //const name=req.body.name;
+    const email = req.body.email;
+    const password = req.body.password;
+var exist =0;
+var ok=0;
+    const user = await User.findOne({email:email});
+
+    if(user){
+        console.log(user.email);
+        console.log(user.password)
+        
+        console.log(email);
+        console.log(password)
+        exist=1;
+        //console.log(user);
+        if(password===user.password)
+            ok=1;
+console.log("at backend")
+console.log(exist);
+console.log(ok);
+        return     res.json({exist:exist,ok:ok});
+       
+    }
+console.log("at backend")
+console.log(exist);
+console.log(ok);
+    res.json({exist:exist,ok:ok});
+    
+})
+
 app.listen(4000, () => {
     console.log("Server listening on port " + 4000);
 });

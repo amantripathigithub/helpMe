@@ -34,7 +34,7 @@ export default function Signup() {
    
 
     let fetchData=()=>{
-        const url='http://localhost:4000/register';
+        const url='https://helpme-server1.onrender.com/register';
         const data ={name:name,email:email,password:password};
         axios.post(url,data).then((res)=>{
             const exist = res.data.exist;

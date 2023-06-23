@@ -31,7 +31,8 @@ export default function Helpme() {
 
   return (
     <div>
-      
+      {latitude}
+      {longitude}
     </div>
   )
 }

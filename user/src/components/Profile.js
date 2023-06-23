@@ -1,16 +1,24 @@
 import React from 'react'
 import {useCookies} from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 
 export default function Profile() {
 
-  const [cookies , setCookie]  = useCookies(['user']);
+  const navigate = useNavigate();
 
+  const [cookies , setCookie]  = useCookies(['user']);
+  const helpMe=()=>{
+    navigate('/helpMe');
+  }
   return (
     <div>
        <div>
        
-        
-        <p>{cookies.password}</p>
+       <button onClick={helpMe} className="btn"
+						type="submit">
+					Help Me
+				</button>     
+       
         
       </div>
     </div>

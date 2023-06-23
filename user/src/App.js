@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Profile from './components/Profile'
 import { Routes, Route } from 'react-router-dom';
 import NoMatch from './components/NoMatch';
+import Helpme from './components/Helpme';
 function App() {
   
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/helpMe" element={<Helpme />} />
           <Route path="*" element={<NoMatch />} />
        </Routes>
      

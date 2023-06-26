@@ -44,7 +44,7 @@ center: [lng, lat],
 zoom: zoom
 });
 });
- 
+
 useEffect(() => {
 // if (!map.current) return; // wait for map to initialize
 map.current.on('move', () => {

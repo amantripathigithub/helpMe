@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-import MapGL, {Map,NavigationControl, Popup} from 'react-map-gl';
-import ReactMapboxGl, { Marker } from 'react-mapbox-gl';
+
 import 'mapbox-gl/dist/mapbox-gl.css'; 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW1hbnRyaXBhdGhpNiIsImEiOiJjbGo4Y3NoNjYxOWlvM2Z0ZWlqeDdtcG83In0.4lpEdOMCUUfO9xFQJzk86g';
 

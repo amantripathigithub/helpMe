@@ -53,7 +53,15 @@ const Map = () => {
 
  
 
-  return <div ref={mapContainerRef} style={{ width: '100%', height: '400px' }} />;
+  return (
+    <div>
+    <div ref={mapContainerRef} style={{ width: '100%', height: '400px' }} />
+    <div className="sidebar">
+Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+</div>
+
+</div>
+  )
 };
 
 export default Map;

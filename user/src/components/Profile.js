@@ -8,7 +8,7 @@ export default function Profile() {
 
   const [cookies , setCookie]  = useCookies(['user']);
   const helpMe=()=>{
-    navigate('/helpMe');
+    navigate('/map');
   }
   return (
     <div>

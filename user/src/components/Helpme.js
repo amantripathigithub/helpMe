@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
- 
+import MapGL, {NavigationControl, Marker,Popup} from 'react-map-gl';
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW1hbnRyaXBhdGhpNiIsImEiOiJjbGo4Y3NoNjYxOWlvM2Z0ZWlqeDdtcG83In0.4lpEdOMCUUfO9xFQJzk86g';
  
 export default function Helpme() {
@@ -55,7 +55,17 @@ return (
 <div className="sidebar">
 Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
 </div>
-<div ref={mapContainer} className="map-container" />
+<div ref={mapContainer} className="map-container" >
+<Marker longitude={lng}
+
+latitude={lat}>
+
+
+
+
+
+</Marker>
+</div>
 </div>
 );
 }

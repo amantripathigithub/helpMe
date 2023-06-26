@@ -11,11 +11,11 @@ const Map = () => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [78.0080745,27.1766701],
+      center: [79.1500805,26.6530441],
       zoom: 9,
     });
 
-    const marker = new mapboxgl.Marker().setLngLat([78.0080745,27.1766701]).addTo(map);
+    const marker = new mapboxgl.Marker().setLngLat([79.1500805,26.6530441]).addTo(map);
 
     return () => {
       map.remove();

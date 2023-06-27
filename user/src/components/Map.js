@@ -34,7 +34,7 @@ const Map = () => {
     console.log(email)
 
 
-    const url='https://helpme-server1.onrender.com/savemylocation/'+email;
+    const url='https://helpme-server3.onrender.com/savemylocation/'+email;
     console.log(url);
     const data ={email:email,lng:lng,lat:lat};
     axios.post(url,data).then((res)=>{

@@ -6,26 +6,26 @@ import  { useRef, useEffect ,useState} from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import Cookies from 'js-cookie';
-
-
+var hi="nope";
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW1hbnRyaXBhdGhpNiIsImEiOiJjbGo4Y3NoNjYxOWlvM2Z0ZWlqeDdtcG83In0.4lpEdOMCUUfO9xFQJzk86g';
-
+var temp =[];
 export default function LetsHelp() {
 
-    
+ 
+
 
     const mapContainerRef = useRef(null);
 
 // my location..
 
+const [log,setlog] = useState("");
+const [mylng, setmyLng] = useState(78.149);
+const [mylat, setmyLat] = useState(27.652);
+const [myzoom, setmyZoom] = useState(8);
 
-const [mylng, setmyLng] = useState(0);
-const [mylat, setmyLat] = useState(0);
-const [myzoom, setmyZoom] = useState(9);
-
-const [lng, setLng] = useState(0);
-  const [lat, setLat] = useState(0);
-  const [zoom, setZoom] = useState(9);
+const [lng, setLng] = useState(1);
+  const [lat, setLat] = useState(1);
+  const [zoom, setZoom] = useState(8);
 
 
 
@@ -34,6 +34,7 @@ const [lng, setLng] = useState(0);
 
   
     useEffect(() => {
+  
       const map = new mapboxgl.Map({
         container: mapContainerRef.current,
         style: 'mapbox://styles/mapbox/streets-v12',
@@ -71,6 +72,7 @@ const [lng, setLng] = useState(0);
 
       return () => {
         map.remove();
+        
       };
     }, [mylat,mylng,lng,lat]);
   
@@ -83,7 +85,7 @@ const [lng, setLng] = useState(0);
     
   
     const url='https://helpme-server3.onrender.com/lets_help/'+id;
-      console.log(url);
+      //console.log(url);
       const data ={email:id};
      
       setInterval(() => 
@@ -97,8 +99,10 @@ if (navigator.geolocation) {
   
   
   function success(position) {
+  
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
+    
     setmyLng(longitude);
     setmyLat(latitude);
     console.log(`my Latitude: ${latitude}, my Longitude: ${longitude}`);
@@ -115,10 +119,12 @@ if (navigator.geolocation) {
       
       
       axios.post(url,data).then((res)=>{
-          console.log(res.data)
+          //console.log(res.data)
+          console.log("5");
           if(res.data.ok===1){
               setLng(res.data.lng);
               setLat(res.data.lat);
+             
               console.log("got users location location as " + lng +" and "+ lat);
              // toast.success(" long - " + lng + "\n lat - " + lat);
           }else{
@@ -133,19 +139,9 @@ if (navigator.geolocation) {
       })
     
      
-      fetch("https://api.geoapify.com/v1/routing?waypoints="+mylat+"%2C"+mylng+"%7C"+lat+"%2C"+lng+"&mode=drive&apiKey=ae5592dc2de44b8ca3cd03203186aa0b")
-  .then(response => response.json())
-  .then(result =>{
+     
     
-    for(var i = 1; i<=result.features[0].properties.legs[0].steps.length;i++){
-      console.log(result.features[0].properties.legs[0].steps[i-1].distance)
-      console.log(result.features[0].properties.legs[0].steps[i-1].instruction.text)
-    }
-  })
-  .catch(error => console.log('error', error));
-    
-    
-    } , 7000);
+    } , 20000);
   
          
   
@@ -155,15 +151,21 @@ if (navigator.geolocation) {
     return (
       <div>
       <div ref={mapContainerRef} style={{ width: '100%', height: '400px' }} />
-      <div className="sidebar">
- me -        
+      <div className="sidebar">me -        
   Longitude: {mylng} | Latitude: {mylat} | Zoom: {myzoom}
-  </div>
-  <div className="sidebar2">
-    user - 
+  <br></br>
+  user - 
   Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-  </div>
+
   
+  </div>
+ 
+  
+
+
+
+
+
   </div>
     )
   };

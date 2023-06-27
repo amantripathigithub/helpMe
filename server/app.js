@@ -139,6 +139,7 @@ app.post("/lets_help/*", async (req,res)=>{
     
     var exist =0;
     var ok=0;
+    var hi="hello";
         const user = await User_location.findOne({email:email});
     
         
@@ -148,16 +149,16 @@ app.post("/lets_help/*", async (req,res)=>{
             const lng = user.longitude;
             const lat = user.latitude;
             ok=1;
-            res.json({exist:exist,lng:lng,lat:lat,ok:ok});
+            res.json({hi:hi,exist:exist,lng:lng,lat:lat,ok:ok});
             
            
 
 
         }else{
-            res.json({exist:exist,lng:0.0,lat:-1.0});
+            res.json({hi:hi,exist:exist,lng:0.0,lat:-1.0});
         }
     
-        
+
             
     
     

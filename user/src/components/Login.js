@@ -46,6 +46,7 @@ export default function Login() {
                 toast.success("Login is success !! ");
                 setCookie('email' ,email ,{path:'/'});
                 setCookie('password',password,{path:'/'});
+                //setCookie('password',password,{path:'/'});
                 navigate('/profile');
             }else{
                 

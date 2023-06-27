@@ -8,6 +8,7 @@ import NoMatch from './components/NoMatch';
 import Helpme from './components/Helpme';
 import Map from './components/Map';
 import Login from './components/Login';
+import LetsHelp from './components/LetsHelp';
 function App() {
   
   return (
@@ -20,6 +21,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/helpMe" element={<Helpme />} />
           <Route path="/map" element={<Map />} />
+          <Route exact path="/lets_help/:id" element={<LetsHelp />} />
+
           <Route path="*" element={<NoMatch />} />
        </Routes>
      
